@@ -1,8 +1,11 @@
 package main;
 
+import controller.CSVReader;
 import controller.Controller;
 import controller.MortageFormula;
 import model.Model;
+
+import java.io.File;
 
 public class Main {
 
@@ -16,16 +19,9 @@ public class Main {
         Controller controller = new Controller(model);
 
 
-        System.out.println("calcing power");
-        double power = MortageFormula.pow(-10.5, 2);
 
-        System.out.println(power);
 
-/*      Move this to an unit test
-        System.out.println("calcing power");
-        double power = MortageFormula.pow(10.5, 2);
 
-        System.out.println(power);
-*/
+
     }
 }

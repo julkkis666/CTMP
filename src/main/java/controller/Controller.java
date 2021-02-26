@@ -2,6 +2,8 @@ package controller;
 
 import model.Model;
 
+import java.io.File;
+
 public class Controller {
 
     private Model model;
@@ -14,6 +16,10 @@ public class Controller {
     }
 
     private void start() {
-        //readData();
+        readData(new File("porisoects.txt"));
+    }
+
+    private void readData(File file) {
+        model.addLoans(CSVReader.readLoansWithHeader(file));
     }
 }

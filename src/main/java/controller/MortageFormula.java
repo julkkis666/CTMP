@@ -2,6 +2,14 @@ package controller;
 
 public class MortageFormula {
 
+
+    /**
+     * function to calculate N debt repayment
+     * @param interest intrest per N
+     * @param TotalLoan size of loan
+     * @param numPayments "N", amount of payments
+     * @return returns how much must be payed per N to pay off the loan.
+     */
     public static double calculateE(double interest, double TotalLoan, int numPayments){
         return TotalLoan*(interest*pow((1+interest),numPayments))/(pow((1+interest),numPayments)-1);
     }
