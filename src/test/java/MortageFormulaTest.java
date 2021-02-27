@@ -17,7 +17,7 @@ public class MortageFormulaTest {
         Assertions.assertEquals(number, 1);
     }
 
-
+/*
     @Test
     @DisplayName("Comparing with Math.power() 5 times")
     public void confirms_with_MathPower(){
@@ -28,9 +28,7 @@ public class MortageFormulaTest {
             double number = MortageFormula.pow(x,y);
             Assertions.assertEquals(number, Math.pow(x,y));
         }
-
-
-    }
+    }*/
 
     @Test
     @DisplayName("Power of one is x")

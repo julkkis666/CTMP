@@ -7,12 +7,14 @@ public class Loan {
     private final double totalLoan;
     private final double interest;
     private final int months;
+    private final boolean plural;
 
-    public Loan(String customer, double totalLoan, double interest, int months) {
+    public Loan(String customer, double totalLoan, double interest, int months, boolean plural) {
         this.customer = customer;
         this.totalLoan = totalLoan;
         this.interest = interest;
         this.months = months;
+        this.plural = plural;
     }
 
     public String getCustomer() {
@@ -32,4 +34,10 @@ public class Loan {
     }
 
 
+    public String pluralHas() {
+        if(plural){
+            return "have";
+        }
+        return "has";
+    }
 }

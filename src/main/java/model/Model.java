@@ -20,4 +20,8 @@ public class Model {
     public void addLoans(List<Loan> loans) {
         this.loans.addAll(loans);
     }
+
+    public List<Loan> getLoans() {
+        return loans;
+    }
 }

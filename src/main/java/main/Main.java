@@ -5,7 +5,9 @@ import controller.Controller;
 import controller.MortageFormula;
 import model.Model;
 
+import javax.swing.*;
 import java.io.File;
+import java.util.List;
 
 public class Main {
 
@@ -20,7 +22,18 @@ public class Main {
 
 
 
+        controller.readData(new File("src\\main\\resources\\prospects.txt"));
 
+
+
+        List<String> results = controller.calculateE(model.getLoans());
+        String myString = "";
+        for(String result : results){
+            myString += result+"\n";
+        }
+
+
+        JOptionPane.showMessageDialog(null,myString);
 
 
     }
