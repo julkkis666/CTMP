@@ -22,3 +22,6 @@ U = Total loan
 p = Number of payments
 
 E = U[b(1 + b)^p]/[(1 + b)^p - 1]
+
+
+Attention: Accented characters for customer names may not show up correctly due to https://youtrack.jetbrains.com/issue/IDEA-59679

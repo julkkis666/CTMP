@@ -1,13 +1,11 @@
 package model;
 
-import controller.Controller;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
 
-    private List<Loan> loans = new ArrayList<>();
+    private final List<Loan> loans = new ArrayList<>();
 
     public Model() {
     }

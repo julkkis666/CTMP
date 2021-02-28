@@ -106,15 +106,16 @@ public class CSVReader {
                 }
                 row.set(0,row.get(0).replace("\"",""));//trimmer
 
-                //TODO: prob doesn't work for words with multiple commas.
+                List<String> toBeRemoved = new ArrayList<>();
                 for(int j = 1 ; j < i ; j++){ //removes unneccesary strings
-                    row.remove(j);
+                    toBeRemoved.add(row.get(j));
                 }
+                row.removeAll(toBeRemoved);
 
-                //add plural identifier
-                row.add(""+i);
+                row.add(""+i);//adds plural identifier
 
             }catch(IndexOutOfBoundsException e){
+                JOptionPane.showMessageDialog(null, "Following prospect is missing ending citation mark: "+row.get(0)+"\n\n"+e);
             }
         }
         else{

@@ -6,11 +6,11 @@ import java.text.DecimalFormat;
  * this class exists so that we can round money to pennies
  */
 public class Money {
-    private final static String name = "Duckburgian Dollars";
+    private final static String name = "Duckburg Dollars";
     private final static String shortName = "D$";
 
     private final static int fractionSize = 2; //How many decimals of little monies make one big money
-    private static DecimalFormat decimalFormat;
+    private static final DecimalFormat decimalFormat;
 
     static {
         decimalFormat = decimalFormat();
@@ -21,17 +21,13 @@ public class Money {
      * @return returns correct DecimalFormat object for the fractionSize variable given in class field.
      */
     private static DecimalFormat decimalFormat() {
-        String decimalString = "#.";
-        for (int i = 0 ; i < fractionSize; i++){
-            decimalString = decimalString+"#";
-        }
-        return new DecimalFormat(decimalString);
+        return new DecimalFormat("#." + "#".repeat(fractionSize));
     }
 
     private long amount;
 
     public Money(double amount){
-        this.amount = convertfromDouble(amount);
+        this.amount = convertFromDouble(amount);
     }
 
     public static String getSymbol() {
@@ -69,7 +65,7 @@ public class Money {
     }
 
     public void setAmount(double d){
-        amount = convertfromDouble(d);
+        amount = convertFromDouble(d);
     }
 
     /**
@@ -79,7 +75,7 @@ public class Money {
      * @param d double to convert to "money long"
      * @return converts double to an integer (long)
      */
-    private long convertfromDouble(double d){
+    private long convertFromDouble(double d){
         for(int i = 0; i < fractionSize; i++){
             d = d*10;
         }

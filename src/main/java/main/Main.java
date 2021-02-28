@@ -1,14 +1,10 @@
 package main;
 
-import controller.CSVReader;
 import controller.Controller;
-import controller.MortageFormula;
-import model.Loan;
 import model.Model;
 
 import javax.swing.*;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -30,13 +26,13 @@ public class Main {
 
         List<String> results = controller.calculateE(model.getLoans());
         String seperatorString = "\n****************************************************************************************************\n";
-        String myString = seperatorString;
+        StringBuilder myString = new StringBuilder(seperatorString);
         for(String result : results){
-            myString += result+seperatorString;
+            myString.append(result).append(seperatorString);
         }
 
 
-        JOptionPane.showMessageDialog(null,myString);
+        JOptionPane.showMessageDialog(null, myString.toString());
 
 
     }

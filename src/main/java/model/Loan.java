@@ -9,6 +9,14 @@ public class Loan {
     private final int months;
     private final boolean plural;
 
+    /**
+     * Loan object for this use-case
+     * @param customer name or names (with "and" seperating) of customer(s)
+     * @param totalLoan size of loan
+     * @param interest monthly (or "N") interest in decimal format (0.05 = 5%)
+     * @param months amount of payments (in months/N)
+     * @param plural should we use plural or singular verb when discussing the customer(s)?
+     */
     public Loan(String customer, double totalLoan, double interest, int months, boolean plural) {
         this.customer = customer;
         this.totalLoan = totalLoan;
@@ -34,13 +42,6 @@ public class Loan {
     }
 
 
-    public String pluralHas() {
-        if(plural){
-            return "have";
-        }
-        return "has";
-    }
-
     public String pluralWants() {
         if(plural){
             return "want";
@@ -48,7 +49,15 @@ public class Loan {
         return "wants";
     }
 
+    /* example
+    public String pluralHas() {
+        if(plural){
+            return "have";
+        }
+        return "has";
+    }*/
+
     public double getYears() {
-        return months/12;
+        return months/((double)12);
     }
 }
