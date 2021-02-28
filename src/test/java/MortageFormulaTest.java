@@ -1,4 +1,5 @@
 import controller.MortageFormula;
+import model.Money;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -11,10 +12,10 @@ public class MortageFormulaTest {
 
 
     @Test
-    @DisplayName("power of zero is zero")
-    public void test(){
-        double number = MortageFormula.pow(123,0);
-        Assertions.assertEquals(number, 1);
+    @DisplayName("formula works")
+    public void test_formula(){
+        double number = MortageFormula.calculateE(0.2,30000,30);
+        Assertions.assertEquals(Money.parseMoney(number), ""+6025.38); //is result correct to implied accuaracy?
     }
 
 

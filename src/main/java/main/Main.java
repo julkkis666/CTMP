@@ -28,12 +28,6 @@ public class Main {
         }
         controller.readData(new File(pathname));
 
-        List<Loan> myLoans = new ArrayList<>();
-        myLoans.add(new Loan("bob tester 1", 30000, 0.2, 30, false));
-
-
-        model.addLoans(myLoans);
-
         List<String> results = controller.calculateE(model.getLoans());
         String seperatorString = "\n****************************************************************************************************\n";
         String myString = seperatorString;
