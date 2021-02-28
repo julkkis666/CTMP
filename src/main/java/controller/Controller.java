@@ -14,7 +14,6 @@ public class Controller {
 
     public Controller(Model model) {
         this.model = model;
-        model.setController(this);
     }
 
     public void readData(File file) {
