@@ -40,4 +40,15 @@ public class Loan {
         }
         return "has";
     }
+
+    public String pluralWants() {
+        if(plural){
+            return "want";
+        }
+        return "wants";
+    }
+
+    public double getYears() {
+        return months/12;
+    }
 }

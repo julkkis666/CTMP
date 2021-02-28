@@ -1,17 +1,41 @@
 package model;
 
+import java.text.DecimalFormat;
+
 /**
  * this class exists so that we can round money to pennies
  */
 public class Money {
     private final static String name = "Duckburgian Dollars";
     private final static String shortName = "D$";
+
     private final static int fractionSize = 2; //How many decimals of little monies make one big money
+    private static DecimalFormat decimalFormat;
+
+    static {
+        decimalFormat = decimalFormat();
+    }
+
+    /**
+     * dynamically tie decimalFormat to fractionSize (how many decimals to show when talking about money).
+     * @return returns correct DecimalFormat object for the fractionSize variable given in class field.
+     */
+    private static DecimalFormat decimalFormat() {
+        String decimalString = "#.";
+        for (int i = 0 ; i < fractionSize; i++){
+            decimalString = decimalString+"#";
+        }
+        return new DecimalFormat(decimalString);
+    }
 
     private long amount;
 
     public Money(double amount){
         this.amount = convertfromDouble(amount);
+    }
+
+    public static String getSymbol() {
+        return shortName;
     }
 
     public long getAmountLong(){
@@ -31,6 +55,15 @@ public class Money {
         return Double.toString(d);
     }
 
+    /**
+     * parse a double into a readable money format
+     * @param d amount of money (double)
+     * @return amount of money ("readable")
+     */
+    public static String parseMoney(double d){
+        return decimalFormat.format(d);
+    }
+
     public static int getFractions() {
         return fractionSize;
     }
@@ -38,10 +71,6 @@ public class Money {
     public void setAmount(double d){
         amount = convertfromDouble(d);
     }
-
-
-
-
 
     /**
      *

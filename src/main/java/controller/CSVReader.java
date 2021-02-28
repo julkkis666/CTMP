@@ -47,6 +47,7 @@ public class CSVReader {
         catch (IOException e){
             //TODO: error handling
             JOptionPane.showMessageDialog(null, "data loading error");
+            return new ArrayList<>();
         }
         int monthMultiplier = headerParser(records.get(0));
         return loanParser(records, monthMultiplier);
@@ -74,7 +75,7 @@ public class CSVReader {
             if(!record.equals(records.get(0))){
                 String customer = record.get(0);
                 double totalLoan = Double.parseDouble(record.get(1));
-                double interest = Double.parseDouble(record.get(2));
+                double interest = (Double.parseDouble(record.get(2)))/100; //divide with 100 to make into percent
                 int months = ((Integer.parseInt(record.get(3)))*monthMultiplier);
 
                 boolean plural = false;

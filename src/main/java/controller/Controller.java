@@ -2,6 +2,7 @@ package controller;
 
 import model.Loan;
 import model.Model;
+import model.Money;
 
 import java.io.File;
 import java.util.LinkedList;
@@ -27,10 +28,23 @@ public class Controller {
      * */
     public List<String> calculateE(List<Loan> loans) {
         List<String> results = new LinkedList<>();
+        int prospectNum = 1;
         for(Loan loan : loans){
 
-            results.add(loan.getCustomer()+" "+loan.pluralHas()+" a loan that would have the following fixed monthly payment: "+MortageFormula.calculateE(loan.getInterest(),loan.getTotalLoan(),loan.getMonths()));
+            results.add("Prospect "+prospectNum++ +": "+loan.getCustomer()+" "+loan.pluralWants()+
+                    " to borrow "+
+                    Money.parseMoney(
+                            loan.getTotalLoan()
+                                     )+
+                    " "+Money.getSymbol()+" for a period of "+loan.getYears()+" years and pay "
+                    +Money.parseMoney(
+                            MortageFormula.calculateE(loan.getInterest(),loan.getTotalLoan(),loan.getMonths())
+                                      )+
+                    " "+Money.getSymbol()+" each month");
         }
         return results;
     }
+
+
+
 }
