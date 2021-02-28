@@ -22,9 +22,11 @@ public class Main {
         Model model = new Model();
         Controller controller = new Controller(model);
 
-
-
-        controller.readData(new File("src\\main\\resources\\prospects.txt"));
+        String pathname = "src\\main\\resources\\prospects.txt";
+        if (args.length >= 1){
+            pathname = args[0];
+        }
+        controller.readData(new File(pathname));
 
         List<Loan> myLoans = new ArrayList<>();
         myLoans.add(new Loan("bob tester 1", 30000, 0.2, 30, false));

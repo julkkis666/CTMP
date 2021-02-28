@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="Mortage Plan calculator">
+    <output-path>$PROJECT_DIR$/out/artifacts/Mortage_Plan_calculator</output-path>
+    <root id="root">
+      <element id="archive" name="MortagePlanCalculator.jar">
+        <element id="module-output" name="CTMP.main" />
+      </element>
+    </root>
+  </artifact>
+</component>
