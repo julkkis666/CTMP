@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 
 /**
  * this class exists so that we can round money to pennies
+ * currently only static usage.
  */
 public class Money {
     private final static String name = "Duckburg Dollars";
