@@ -100,9 +100,11 @@ public class CSVReader {
         if(row.get(0).contains("\"")){
             try{
                 int i = 1;
-                while(row.get(i).contains("\"")){
+                boolean notEnd = true;
+                while(notEnd){
                     row.set(0, row.get(0)+" and "+row.get(i));
                     i++;
+                    notEnd = row.get(i).contains("\"");
                 }
                 row.set(0,row.get(0).replace("\"",""));//trimmer
 
