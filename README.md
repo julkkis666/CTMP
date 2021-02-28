@@ -2,6 +2,7 @@
 
 To run the program you can for example load https://github.com/julkkis666/CTMP into your intellij IDEA and run the 
 Main method from src/main/java/main/Main.
+If you perfer using Eclipse, instructions are similar. just import project from git using the link.
 
 Program was written in Java version 11.
 
